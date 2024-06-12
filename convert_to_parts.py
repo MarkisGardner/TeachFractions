@@ -69,4 +69,5 @@ def ctp(text, t_type):
     d, e, f = second_part(text, t_type)
     print("a is {}".format(a), "b is {}".format(b), "c is {}".format(c))
     print("d is {}".format(d), "e is {}".format(e), "f is {}".format(f))
+    # test
     return a, b, c, d, e, f
