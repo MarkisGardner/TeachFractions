@@ -5,7 +5,7 @@ import convert_to_parts
 import add_fractions
 import subtract_fractions
 import multiply_fractions
-import divide_fractions
+#import divide_fractions
 
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
@@ -28,6 +28,21 @@ def is_valid(t_problem):
         if char not in allowed_set:
             return False
     return True
+
+def convert_to_improper(whole_num, numerator, denominator):
+    print("When multiplying and dividing fractions we need to convert to improper fractions if there is a constant.")
+    if whole_num == 0:
+        print("There is no whole number so we do not need to convert to improper fraction.")
+        return numerator, denominator
+    elif numerator == 0:
+        print("There is fraction so we do not need to convert to improper fraction.")
+        return whole_num, 1
+    else:
+        print("The way to convert this fraction", whole_num, str(numerator) + "/" + str(denominator))
+        print("to an improper fraction is to multiply the", whole_num, "by the denominator", denominator)
+        print("then add the numerator and put over the denominator.")
+        print("So, slowly, we have ", "(" + str(whole_num) + "*" + str(denominator) + str(numerator) + ") divided by " + str(denominator))
+        return whole_num * denominator + numerator, denominator
 
 
 def check_type(t_problem):
@@ -57,7 +72,10 @@ def check_type(t_problem):
 
 
 def print_the_solution(coeff, numer, denom, imp_num, imp_den):
-    if coeff == 0:
+    if numer == 0:
+        print("The answer is:", coeff)
+        print("since there is no fraction, there is no improper fraction solution.")
+    elif coeff == 0:
         print("The answer is:", str(numer)+"/"+str(denom))
         print("since there is no whole number part there is no improper fraction solution.")
     else:
@@ -82,8 +100,13 @@ while problem != "QUIT":
     elif f_type == "-":
         g, h, i, j, k = subtract_fractions.sub_f(a, b, c, d, e, f)
     elif f_type == "*":
-        g, h, i, j, k = multiply_fractions.mult_f(a, b, c, d, e, f)
+        a, c = convert_to_improper(a, b, c)
+        d, f = convert_to_improper(d, e, f)
+        g, h, i, j, k = multiply_fractions.mult_f(a, c, d, f)
     else:
-        g, h, i, j, k = divide_fractions.div_f(a, b, c, d, e, f)
+        a, c = convert_to_improper(a, b, c)
+        d, f = convert_to_improper(d, e, f)
+        print("Now to divide two fractions we flip and multiply so we change the second fraction")
+        g, h, i, j, k = multiply_fractions.mult_f(a, c, f, d)
 
     print_the_solution(g, h, i, j, k)
