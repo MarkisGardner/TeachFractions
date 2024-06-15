@@ -35,7 +35,7 @@ def convert_to_improper(whole_num, numerator, denominator):
         print("There is no whole number so we do not need to convert to improper fraction.")
         return numerator, denominator
     elif numerator == 0:
-        print("There is fraction so we do not need to convert to improper fraction.")
+        print("There is no fraction so we do not need to convert to improper fraction.")
         return whole_num, 1
     else:
         print("The way to convert this fraction", whole_num, str(numerator) + "/" + str(denominator))
@@ -100,13 +100,15 @@ while problem != "QUIT":
     elif f_type == "-":
         g, h, i, j, k = subtract_fractions.sub_f(a, b, c, d, e, f)
     elif f_type == "*":
+        print("Before converting to improper fraction - a is ", type(a))
         a, c = convert_to_improper(a, b, c)
         d, f = convert_to_improper(d, e, f)
+        print("Before multiplying a is", type(a))
         g, h, i, j, k = multiply_fractions.mult_f(a, c, d, f)
     else:
         a, c = convert_to_improper(a, b, c)
         d, f = convert_to_improper(d, e, f)
         print("Now to divide two fractions we flip and multiply so we change the second fraction")
-        g, h, i, j, k = multiply_fractions.mult_f(a, c, f, d)
+        g, h, i, j, k = multiply_fractions.mult_f(c, f, d)
 
     print_the_solution(g, h, i, j, k)

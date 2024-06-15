@@ -29,7 +29,9 @@ def first_part(text, t_type):
         else:
             b = int(fp_str[0:pos_of_slash])
         c = int(fp_str[pos_of_slash+1:])
-
+    a = int(a)
+    b = int(b)
+    c = int(c)
     return a, b, c
 
 def second_part(text, t_type):
@@ -61,6 +63,9 @@ def second_part(text, t_type):
         else:
             e = int(sp_str[0:pos_of_slash])
         f = int(sp_str[pos_of_slash+1:])
+    d = int(d)
+    e = int(e)
+    f = int(f)
     return d, e, f
 
 def ctp(text, t_type):
