@@ -95,9 +95,10 @@ while problem != "QUIT":
         print("Program terminated")
         sys.exit(0)
     a, b, c, d, e, f = convert_to_parts.ctp(problem, f_type)
+    print("f_type is now:", f_type)
     if f_type == "+":
         g, h, i, j, k = add_fractions.add_f(a, b, c, d, e, f)
-    elif f_type == "-":
+    elif f_type == " - ":
         g, h, i, j, k = subtract_fractions.sub_f(a, b, c, d, e, f)
     elif f_type == "*":
         print("Before converting to improper fraction - a is ", type(a))
