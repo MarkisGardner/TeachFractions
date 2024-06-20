@@ -5,6 +5,7 @@ import convert_to_parts
 import add_fractions
 import subtract_fractions
 import multiply_fractions
+import clean_the_fraction
 #import divide_fractions
 
 # Press Shift+F10 to execute it or replace it with your code.
@@ -95,6 +96,8 @@ while problem != "QUIT":
         print("Program terminated")
         sys.exit(0)
     a, b, c, d, e, f = convert_to_parts.ctp(problem, f_type)
+    a, b, c = clean_the_fraction.clean_fraction(a, b, c)
+    d, e, f = clean_the_fraction.clean_fraction(d, e, f)
     print("f_type is now:", f_type)
     if f_type == "+":
         g, h, i, j, k = add_fractions.add_f(a, b, c, d, e, f)
