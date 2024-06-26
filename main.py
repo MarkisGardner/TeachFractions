@@ -115,4 +115,4 @@ while problem != "QUIT":
         print("Now to divide two fractions we flip and multiply so we change the second fraction")
         g, h, i, j, k = multiply_fractions.mult_f(c, f, d)
 
-    print_the_solution(g, h, i, j, k)
+    # print_the_solution(g, h, i, j, k)

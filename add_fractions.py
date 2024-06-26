@@ -1,28 +1,6 @@
 import math
 import clean_the_fraction
-def use_least_common_denominator(total, num1, denom1, num2, denom2):
-    print("received total of", total)
-    my_lcm = math.lcm(denom1, denom2)
-    print("To get the least common denominator you need to get the LCM.  So, the LCM of", denom1, "and", denom2,
-          "is equal to", my_lcm)
-    print("Now what you do is take the LCM and divide it by each denominator and then multiply each numerator by that.",
-          "That gives you the new numerator.  The new denominator is the LCM")
-    print("In this case.  Our LCM is", my_lcm, "The first fraction was", str(num1) + "/" + str(denom1) + ".")
-    print("Now we divide our LCM", my_lcm, "by", denom1, "and we get", my_lcm/denom1, "Now multiply that by our numerator",
-          num1, "and we get " + str(my_lcm * num1/denom1) + "/" + str(my_lcm))
-    print("Now we repeat the process with 2nd fraction which was " + str(num2) + "/" + str(denom2) + ".")
-    print("Now we divide our LCM", my_lcm, "by", denom2, "and we get", my_lcm / denom2,
-          "Now multiply that by our second numerator",
-          num2, "and we get " + str(my_lcm * num2 / denom2) + "/" + str(my_lcm))
-    print("Now we have two fractions with the same denominator so now we just add the numerators.")
-    print("That gives us ", total, str(my_lcm * num1/denom1 + my_lcm * num2/denom2) + str("/") + str(my_lcm))
-    print("Now, we could have gotten an improper fraction.  So, let's clean it up.")
-    a, b, c = clean_the_fraction.clean_fraction(total, my_lcm * num1/denom1 + my_lcm * num2/denom2, my_lcm)
-
-
-    return a, b, c
-
-
+import adding_using_lcm
 
 def add_two_fractions(a1, b1, c1, d1, e1, f1, kind):
     print("As a reminder if you have 5 - -2 this is the same as 5 + 2 because negative times a negative is a positive.")
@@ -58,10 +36,12 @@ def add_two_fractions(a1, b1, c1, d1, e1, f1, kind):
         print("Then we add the fractions by getting common denominator.  Finally we simplify the fraction, if possible")
         print("We see the whole number is:", a1 + d1)
         a1 += d1
-        whole1, num, denom = use_least_common_denominator(a1, b1, c1, e1, f1)
+        whole1, num, denom = adding_using_lcm.use_least_common_denominator(a1, b1, c1, e1, f1)
         # print("Now we add the whole number we got from adding the fractions together to the original whole number", a1,
         #      "and we get", a1 + whole1)
-        print("So, our answer is", whole1, str(num) + str(denom))
+        print("So, our answer is", whole1, str(num) + "/" + str(denom))
+        if whole1 == 0:
+            print("There is no improper fraction answer so it is the same.")
         print("Our improper fraction answer is", str(whole1 * denom + num) + "/" + str(denom))
     return whole1, num, denom, (whole1) * denom + num, denom
 
