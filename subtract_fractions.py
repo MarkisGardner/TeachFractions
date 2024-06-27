@@ -1,7 +1,9 @@
 import adding_using_lcm
 import clean_the_fraction
+import add_two_fractions
+import subtract_using_lcm
 
-def add_two_fractions(a1, b1, c1, d1, e1, f1, kind):
+def get_rid_of_add_two_fractions(a1, b1, c1, d1, e1, f1, kind):
     print("As a reminder if you have 5 - -2 this is the same as 5 + 2 because negative times a negative is a positive.")
     print("Similarly if you have -5 - 2, this is the same as -5 + -2, so we just add them together to get -7.")
     if b1 == 0:
@@ -63,12 +65,12 @@ def sub_f(a, b, c, d, e, f):
         else:
             print(" So, we will treat", e, "as", -1 * e, "and just add the two fractions.")
             e = e * (-1)
-        return add_two_fractions(a, b, c, d, e, f, -1)
+        return add_two_fractions.add_them(a, b, c, d, e, f, -1)
     elif (a > 0 or (a == 0 and b > 0)) and ((d < 0) or (d == 0 and e < 0)):
         print("The first is positive and second is negative.  Since subtracting we will do addition")
-        return add_two_fractions(a, b, c, d, e, f, 1)
+        return add_two_fractions.add_them(a, b, c, d, e, f, 1)
     else:
         print("We will do subtraction problem.")
-        return subtract_two_fraction(a, b, c, d, e, f)
+        return subtract_using_lcm.use_least_common_denominator(a, b, c, d, e, f)
 
 
