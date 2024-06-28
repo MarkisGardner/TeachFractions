@@ -5,11 +5,6 @@ import add_two_fractions
 import subtract_using_lcm
 
 
-
-def subtract_two_fractions(a, b, c, d, e, f):
-    return 0, 0, 0, 0, 0
-
-
 def add_f(a, b, c, d, e, f):
     print("The first thing we need to know is if both fractions are positive or both are negative.")
     print("If not, we will turn it into a subtraction problem to make it easier.")
@@ -21,5 +16,5 @@ def add_f(a, b, c, d, e, f):
         return add_two_fractions.add_them(a, b, c, d, e, f, -1)
     else:
         print("We will do subtraction problem.")
-        return subtract_using_lcm.use_least_common_denominator(a, b, c, d, e, f)
+        return subtract_using_lcm.use_least_common_denominator(a, b, c, d, e, f, "+")
     # return 0, 0, 0, 0, 0

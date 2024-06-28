@@ -1,12 +1,12 @@
 def first_part(text, t_type):
-    print(text)
+    # print(text)
     first = len(text)-len(text.lstrip())
     # Now we know the first position of the first number
     last = text.find(t_type)
     # Now we know the position of the last character of first part
     fp_str = text[first:last]
     fp_str = fp_str.strip()
-    print("fp_str is {}".format(fp_str))
+    # print("fp_str is {}".format(fp_str))
     pos_of_space = fp_str.find(' ')
     if (pos_of_space == -1) and (fp_str.find('/') != -1):
         # Only a fraction - no whole number
@@ -16,10 +16,10 @@ def first_part(text, t_type):
         a = fp_str
     else:
         a = int(fp_str[0:pos_of_space])
-    print("A is {}".format(a))
+    # print("A is {}".format(a))
 
     pos_of_slash = fp_str.find('/')
-    print("pos_of_slash is {}".format(pos_of_slash))
+    # print("pos_of_slash is {}".format(pos_of_slash))
     if pos_of_slash == -1:
         b = 0
         c = 1
@@ -35,13 +35,13 @@ def first_part(text, t_type):
     return a, b, c
 
 def second_part(text, t_type):
-    print(text)
+    # print(text)
     first = text.find(t_type) + 2
     # Now we know the position of the first character of the second part
     last = len(text)
     # Now we know the position of the last character of the second part
     sp_str = text[first:last]
-    print("sp_str is {}".format(sp_str))
+    # print("sp_str is {}".format(sp_str))
     sp_str = sp_str.lstrip()
     pos_of_space = sp_str.find(' ')
     if (pos_of_space == -1) and (sp_str.find('/') != -1):
@@ -52,7 +52,7 @@ def second_part(text, t_type):
         d=sp_str
     else:
         d = int(sp_str[0:pos_of_space])
-    print("D is {}".format(d))
+    # print("D is {}".format(d))
     pos_of_slash = sp_str.find('/')
     if pos_of_slash == -1:
         e = 0
@@ -69,10 +69,10 @@ def second_part(text, t_type):
     return d, e, f
 
 def ctp(text, t_type):
-    print("I received",text, t_type)
+    # print("I received",text, t_type)
     a, b, c = first_part(text, t_type)
     d, e, f = second_part(text, t_type)
-    print("a is {}".format(a), "b is {}".format(b), "c is {}".format(c))
-    print("d is {}".format(d), "e is {}".format(e), "f is {}".format(f))
+    # print("a is {}".format(a), "b is {}".format(b), "c is {}".format(c))
+    # print("d is {}".format(d), "e is {}".format(e), "f is {}".format(f))
     # test
     return a, b, c, d, e, f

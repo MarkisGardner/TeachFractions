@@ -2,7 +2,7 @@ import math
 import clean_the_fraction
 
 def use_least_common_denominator(total, num1, denom1, num2, denom2):
-    print("received total of", total)
+    # print("received total of", total)
     my_lcm = math.lcm(denom1, denom2)
     print("To get the least common denominator you need to get the LCM.  So, the LCM of", denom1, "and", denom2,
           "is equal to", my_lcm)

@@ -49,11 +49,6 @@ def get_rid_of_add_two_fractions(a1, b1, c1, d1, e1, f1, kind):
 
 
 
-def subtract_two_fraction(a, b, c, d, e, f):
-
-
-    return 0, 0, 0, 0, 0
-
 def sub_f(a, b, c, d, e, f):
     print("The first thing we need to know is if both fractions are positive or both are negative.")
     print("If not, we will turn it into a addition problem to make it easier.")
@@ -71,6 +66,6 @@ def sub_f(a, b, c, d, e, f):
         return add_two_fractions.add_them(a, b, c, d, e, f, 1)
     else:
         print("We will do subtraction problem.")
-        return subtract_using_lcm.use_least_common_denominator(a, b, c, d, e, f)
+        return subtract_using_lcm.use_least_common_denominator(a, b, c, d, e, f, "-")
 
 

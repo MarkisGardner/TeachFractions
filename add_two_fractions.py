@@ -35,8 +35,8 @@ def add_them(a1, b1, c1, d1, e1, f1, kind):
         whole1, num, denom = adding_using_lcm.use_least_common_denominator(a1, b1, c1, e1, f1)
         # print("Now we add the whole number we got from adding the fractions together to the original whole number", a1,
         #      "and we get", a1 + whole1)
-        print("So, our answer is", whole1, str(num) + "/" + str(denom))
-        if whole1 == 0:
-            print("There is no improper fraction answer so it is the same.")
-        print("Our improper fraction answer is", str(whole1 * denom + num) + "/" + str(denom))
+        # print("So, our answer is", whole1, str(num) + "/" + str(denom))
+        #if whole1 == 0:
+        #    print("There is no improper fraction answer so it is the same.")
+        #print("Our improper fraction answer is", str(whole1 * denom + num) + "/" + str(denom))
     return whole1, num, denom, (whole1) * denom + num, denom

@@ -51,7 +51,7 @@ def check_type(t_problem):
     # also because subtraction and negative are two different items I had to check that
     # also because / could be part of a fraction I had to check that.
     # it will also check to see if it is a valid fraction problem
-    print("I received:", t_problem)
+    # print("I received:", t_problem)
     ct_plus = t_problem.count("+")
     ct_minus = t_problem.count(" - ")
     ct_multiply = t_problem.count("*")
@@ -87,10 +87,11 @@ def print_the_solution(coeff, numer, denom, imp_num, imp_den):
 problem = 0
 while problem != "QUIT":
     problem = input(
-        "Please enter an addition/subtraction/multiplication/division problem using fractions or hit enter for "
+        "Please enter an addition/subtraction/multiplication/division problem using fractions, QUIT to exit or hit enter for "
         "instructions: ")
+    print("First, we need to make sure the fraction is valid.  Ie don't send 5 3/2.  Send 6 1/2.")
     f_type = check_type(problem)
-    print("it is type", f_type)
+    # print("it is type", f_type)
     if f_type == "ERROR":
         instructions()
         print("Program terminated")
@@ -98,21 +99,21 @@ while problem != "QUIT":
     a, b, c, d, e, f = convert_to_parts.ctp(problem, f_type)
     a, b, c = clean_the_fraction.clean_fraction(a, b, c)
     d, e, f = clean_the_fraction.clean_fraction(d, e, f)
-    print("f_type is now:", f_type)
+    # print("f_type is now:", f_type)
     if f_type == "+":
         g, h, i, j, k = add_fractions.add_f(a, b, c, d, e, f)
     elif f_type == " - ":
         g, h, i, j, k = subtract_fractions.sub_f(a, b, c, d, e, f)
     elif f_type == "*":
-        print("Before converting to improper fraction - a is ", type(a))
+        # print("Before converting to improper fraction - a is ", type(a))
         a, c = convert_to_improper(a, b, c)
         d, f = convert_to_improper(d, e, f)
-        print("Before multiplying a is", type(a))
+        # print("Before multiplying a is", type(a))
         g, h, i, j, k = multiply_fractions.mult_f(a, c, d, f)
     else:
         a, c = convert_to_improper(a, b, c)
         d, f = convert_to_improper(d, e, f)
         print("Now to divide two fractions we flip and multiply so we change the second fraction")
-        g, h, i, j, k = multiply_fractions.mult_f(c, f, d)
+        g, h, i, j, k = multiply_fractions.mult_f(a, c, f, d)
 
-    # print_the_solution(g, h, i, j, k)
+    print_the_solution(g, h, i, j, k)
