@@ -2,16 +2,17 @@
 import math
 def common_factor(a, b):
     c = 1
-    b=int(b)
-    print(type(a), type(b), type(c))
+    #b=int(b)
+    #print(type(a), type(b), type(c))
     c = math.gcd(a,b)
     if c == 1:
-        print("There is no common factor between {} and {}.".format(a, b))
+        # print("There is no common factor between {} and {}.".format(a, b))
         return 1, a, b
     else:
-        print("The greatest common factor between {} and {} is {}.".format(a, b, c))
-        print("Because", c, "*", a/c, "=", a, "and", c, "*", b/c, "=", b)
-        return c, a/c, b/c
+        # print("The greatest common factor between {} and {} is {}.".format(a, b, c))
+        # print("Because", c, "*", a/c, "=", a, "and", c, "*", b/c, "=", b)
+        # print("So we need to divide both numbers by", c)
+        return c, a//c, b//c
 
 
 def process_for_multiplying_numerator_by_2nd_fraction(a, b, c, d):
@@ -36,13 +37,13 @@ def process_for_multiplying_numerator_by_2nd_fraction(a, b, c, d):
     else:
         print(e,"is the largest common factor for both", a, "and", d, "so we need to divide both by", e)
         # put more work here.
-        print("Since" + str(a) + "divided by" + str(e) + "is" + str(a / e) +
-              "and " + str(d) + "divided by " + str(e) + "is" + str(d/e))
-        a = a / e
-        d = d / e
+        print("Since" + str(a) + "divided by" + str(e) + "is" + str(a // e) +
+              "and " + str(d) + "divided by " + str(e) + "is" + str(d // e))
+        a = a // e
+        d = d // e
         print("So, now we have ",a, "*" + str(c) + "/" + str(d))
         print(a,"*", c, "is", a*c)
-        print("So, the improper fraction answer is", str(a*c) +"/" + str(d))
+        print("So, the improper fraction answer is", str(a*c) + "/" + str(d))
         if (a*c) < d:
             print("Since", a*c, "is smaller than", d, "the standard fraction is the same answer also.")
             return 0, a*c, d, a*c, d
@@ -57,7 +58,7 @@ def process_for_multiplying_numerator_by_2nd_fraction(a, b, c, d):
 
 
 def mult_f(a, b, c, d):
-    print(type(a))
+    # print(type(a))
     if b == 1:
         if d == 1:
             print("Neither have a denominator so we just multiply the two numbers", a, c)
@@ -86,10 +87,6 @@ def mult_f(a, b, c, d):
 
                 v, w, x, y, z = process_for_multiplying_numerator_by_2nd_fraction(a, b, c, d)
                 return v, w, x, y, z
-
-
-
-                # return 0,0,0,0,0
     else:
         # the first is a fraction.  Put more work here.
         print("The first number is a fraction so let's see if we can reduce it.")
@@ -110,7 +107,7 @@ def mult_f(a, b, c, d):
                 print("As you can see there is no common factor between", c, "and", d, "so, we cannot reduce it.")
             else:
                 print("Can you see that", h, "can divide both the numerator and the denominator?", h,
-                     "divides both", c, "and", d, "so we will divide both by", e)
+                     "divides both", c, "and", d, "so we will divide both by", h)
                 print("Now we get", str(i) + "/" + str(j))
                 c = i
                 d = j
@@ -132,17 +129,17 @@ def mult_f(a, b, c, d):
                   "and the numerator of the second fraction", c, "so, we cannot reduce it.")
         else:
             print("Can you see that", n,"divides both", b, "and", c)
-            print("So, dividing both by",n, "we get (" + str(a) + "/" + str(b/n) + ") *" + "( " + str(c/n) + str(d) + ")")
-            b = b/n
-            c = c/n
+            print("So, dividing both by",n, "we get (" + str(a) + "/" + str(b//n) + ") * " + "(" + str(c//n) + "/" + str(d) + ")")
+            b = b//n
+            c = c//n
         print("Now we have reduced it as much as possible.  Now it is time to multiply.  We do that by multiplying",
               "the numerators", a,"and", c, "then multiplying the denominators", b, "and", d)
-        print("That gives us (", str(a*c) + "/" + str(b*d) + ") which cannot be reduced.")
-        print("That is the final answer for improper fraction.")
+        print("That gives us (" + str(a*c) + "/" + str(b*d) + ") which cannot be reduced.")
+        #  print("That is the final answer for improper fraction.")
         print("Now we will see how many times the denominator will divide into the numerator, ",
               "store that answer and use it as the whole number and the remainder will be used as the numerator for the fraction part")
         if a*c < b*d:
-            print("We can see that", a*c,"<",b*d,"so that fraction is also the simplified fraction.")
+            print("We can see that", a*c,"<",b*d,"so that fraction is not an improper fraction.")
         else:
             print("We see that", b*d, "goes into", a*c, (a * c)//(b * d), "times with", (a * c)%(b * d), "remainder")
             print("So, our final answer is", (a * c)//(b * d), str((a * c)%(b * d)) + "/" + str(b*d))

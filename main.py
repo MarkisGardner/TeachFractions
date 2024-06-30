@@ -31,18 +31,20 @@ def is_valid(t_problem):
     return True
 
 def convert_to_improper(whole_num, numerator, denominator):
-    print("When multiplying and dividing fractions we need to convert to improper fractions if there is a constant.")
-    if whole_num == 0:
-        print("There is no whole number so we do not need to convert to improper fraction.")
-        return numerator, denominator
-    elif numerator == 0:
-        print("There is no fraction so we do not need to convert to improper fraction.")
+
+    if numerator == 0:
+        print(whole_num, "is not a fraction so we do not need to convert to improper fraction.")
         return whole_num, 1
+    elif whole_num == 0:
+        print(str(numerator)+"/"+str(denominator), "Does not have a whole number so we do not need to convert",
+              "to improper fraction.")
+        return numerator, denominator
     else:
         print("The way to convert this fraction", whole_num, str(numerator) + "/" + str(denominator))
         print("to an improper fraction is to multiply the", whole_num, "by the denominator", denominator)
         print("then add the numerator and put over the denominator.")
-        print("So, slowly, we have ", "(" + str(whole_num) + "*" + str(denominator) + str(numerator) + ") divided by " + str(denominator))
+        print("So, slowly, we have ", "(" + str(whole_num) + "*" + str(denominator) + "+" + str(numerator) + ") divided by " + str(denominator))
+        print("So, we get",str(whole_num * denominator + numerator) + "/" + str(denominator))
         return whole_num * denominator + numerator, denominator
 
 
@@ -106,14 +108,19 @@ while problem != "QUIT":
         g, h, i, j, k = subtract_fractions.sub_f(a, b, c, d, e, f)
     elif f_type == "*":
         # print("Before converting to improper fraction - a is ", type(a))
+        print(
+            "When multiplying and dividing fractions we need to convert to improper fractions if there is a constant.")
         a, c = convert_to_improper(a, b, c)
         d, f = convert_to_improper(d, e, f)
         # print("Before multiplying a is", type(a))
         g, h, i, j, k = multiply_fractions.mult_f(a, c, d, f)
     else:
+        print(
+            "When multiplying and dividing fractions we need to convert to improper fractions if there is a constant.")
         a, c = convert_to_improper(a, b, c)
         d, f = convert_to_improper(d, e, f)
-        print("Now to divide two fractions we flip and multiply so we change the second fraction")
+        print("Now to divide two fractions we flip and multiply so we change the second fraction from")
+        print(str(d)+"/"+str(f), "to", str(f)+"/"+str(d))
         g, h, i, j, k = multiply_fractions.mult_f(a, c, f, d)
 
     print_the_solution(g, h, i, j, k)
