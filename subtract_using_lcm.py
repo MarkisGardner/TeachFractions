@@ -1,7 +1,7 @@
 import math
 import clean_the_fraction
 
-def check_which_is_bigger(whole1, num1, denom1, whole2, num2, denom2):
+def check_which_is_bigger(whole1, num1, whole2, num2):
     if abs(whole1) > abs(whole2):
         return 1
     elif abs(whole1) < abs(whole2):
@@ -15,14 +15,26 @@ def check_which_is_bigger(whole1, num1, denom1, whole2, num2, denom2):
 
 
 def subtract_them(whole1, num1, denom1, whole2, num2, denom2, sign, SIGNTYPE):
-    print(whole1, num1, denom1, whole2, num2, denom2, sign, SIGNTYPE)
+    # print(whole1, num1, denom1, whole2, num2, denom2, sign, SIGNTYPE)
     if num1 < num2:
         if whole1 > 0:
+            print("We have a small problem.  We need to subtract " + str(num2) + "/" + str(denom2) + " from",
+                  str(num1) + "/" + str(denom1))
+            print("So, we need to borrow.  So, we need to subtract 1 from ",whole1,"and add the denominator to the numerator")
+            print("Slowly we will do the following:", str(whole1) + "-1","(" + str(num1) + "+" + str(denom1) +")" + "/" + str(denom1))
             num1 = num1 + denom1
             whole1 = whole1 - 1
+            print("That gives us", whole1,str(num1) + "/" + str(denom1))
         else:
             num1 = num1 + denom1
+            print("We have a small problem.  We need to subtract " + str(num2) + "/" + str(denom2) + " from",
+                  str(num1) + "/" + str(denom1))
+            print("So, we need to borrow.  So, we need to subtract 1 from ", whole1,
+                  "and add the denominator to the numerator")
+            print("Slowly we will do the following:", str(whole1) + "-1",
+                  "(" + str(num1) + "+" + str(denom1) + ")" + "/" + str(denom1))
             whole1 = whole1 + 1
+            print("That gives us", whole1, str(num1) + "/" + str(denom1))
     if sign == 1:
         print("here2", whole1, num1, denom1, whole2, num2, denom2, sign, SIGNTYPE)
         if SIGNTYPE == "-":
@@ -47,16 +59,22 @@ def subtract_them(whole1, num1, denom1, whole2, num2, denom2, sign, SIGNTYPE):
                 return whole1 + whole2, num1 - num2, denom1
 
 def use_least_common_denominator(whole1, num1, denom1, whole2, num2, denom2, SIGNTYPE):
-    print("The first thing we want to do is check to see if we have a problem like -1 - -2")
+    print("The next thing we want to do is check to see if we have a problem like -1 - -2")
     print("If we do then we want to change that to -1 + 2")
     if SIGNTYPE == "-":
         if whole2 < 0:
             SIGNTYPE = "+"
+            print("We have that type of problem here.")
+            print("So, we are going to change ",whole2, str(num2) + str("/") + str(denom2))
             whole2 = whole2 * -1
+            print("to +", whole2, str(num2) + str("/") + str(denom2))
         elif num2 < 0:
+            print("We have that type of problem here.")
+            print("So, we are going to change ", str(num2) + str("/") + str(denom2))
             num2 = num2 * -1
+            print("to +", whole2, str(num2) + str("/") + str(denom2))
             SIGNTYPE = "+"
-    print("The first thing we need to do is get the common denominator.  This will help know which fraction is larger.")
+    print("The next thing we need to do is get the common denominator.  This will help know which fraction is larger.")
     my_lcm = math.lcm(denom1, denom2)
     print("To get the least common denominator you need to get the LCM.  So, the LCM of", denom1, "and", denom2,
           "is equal to", my_lcm)
@@ -80,7 +98,7 @@ def use_least_common_denominator(whole1, num1, denom1, whole2, num2, denom2, SIG
     print("Example:  When you have 2 - 5, it is better to do 5 - 2 and use the sign of the larger, since 5 is larger")
     print("We use the sign of 5 which is negative.  So, 5 - 2 = 3 but the sign is negative so make it -3.")
     print("We will do the same with fractions.")
-    larger = check_which_is_bigger(whole1, num1, denom1, whole2, num2, denom2)
+    larger = check_which_is_bigger(whole1, num1, whole2, num2)
     if larger > 0:
         print("We see that fraction 1:",whole1, str(num1) + "/" + str(denom1), "is larger than", whole2, str(num2) + "/" + str(denom2))
         a, b, c = subtract_them(whole1, num1, denom1, whole2, num2, denom2, larger, SIGNTYPE)
@@ -93,7 +111,7 @@ def use_least_common_denominator(whole1, num1, denom1, whole2, num2, denom2, SIG
         whole1, whole2 = whole2, whole1
         num1, num2 = num2, num1
         print("So, let's flip them and now we have the following:")
-        print("Now we have", whole1, str(num1) + "/" + str(denom1), SIGNTYPE, (whole2), str(num2) + "/" + str(denom2))
+        print("Now we have", whole1, str(num1) + "/" + str(denom1), SIGNTYPE, whole2, str(num2) + "/" + str(denom2))
         #print("We see that fraction 1:", whole1, str(num1) + "/" + str(denom1), "is larger than", whole2,
         #     str(num2) + "/" + str(denom2), "as long as you ignore the sign")
         a, b, c = subtract_them(whole1, num1, denom1, whole2, num2, denom2, larger, SIGNTYPE)

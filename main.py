@@ -1,5 +1,6 @@
 # This is a sample Python script.
 # import os
+import math
 import sys
 import convert_to_parts
 import add_fractions
@@ -81,9 +82,25 @@ def print_the_solution(coeff, numer, denom, imp_num, imp_den):
     elif coeff == 0:
         print("The answer is:", str(numer)+"/"+str(denom))
         print("since there is no whole number part there is no improper fraction solution.")
+        if math.gcd(numer, denom) != 1:
+            print("However, the GCF("+str(numer)+","+str(denom)+") =", math.gcd(numer, denom))
+            numer = numer//math.gcd(numer, denom)
+            denom = denom//math.gcd(denom, denom)
+            print("So, we need to divide the numerator and denominator by the GCF.  So we get",
+                  str(numer)+"/"+str(denom))
+        if numer == denom:
+            print("Which is just 1")
+        if numer == -1 * denom:
+            print("Which is just -1")
     else:
         print("The answer is:", coeff, str(numer)+"/"+str(denom))
-        print("The improper fraction solution is", str(imp_num)+"/"+str(imp_den))
+        if math.gcd(numer, denom) != 1:
+            print("However, the GCF(" + str(numer) + "," + str(denom) + ") =", math.gcd(numer, denom))
+            print("So, we need to divide the numerator and denominator by the GCF.  So we get",
+                coeff, str(numer // math.gcd(numer, denom)) + "/" + str(denom // math.gcd(numer, denom)))
+            print("The improper fraction solution is", str(imp_num // math.gcd(imp_num, denom)) + "/" + str(imp_den // math.gcd(imp_num, denom)))
+        else:
+            print("The improper fraction solution is", str(imp_num)+"/"+str(imp_den))
 
 
 problem = 0
@@ -91,7 +108,7 @@ while problem != "QUIT":
     problem = input(
         "Please enter an addition/subtraction/multiplication/division problem using fractions, QUIT to exit or hit enter for "
         "instructions: ")
-    print("First, we need to make sure the fraction is valid.  Ie don't send 5 3/2.  Send 6 1/2.")
+    print("First, we need to make sure the fraction is valid.  I.E. don't send 5 3/2.  Send 6 1/2.")
     f_type = check_type(problem)
     # print("it is type", f_type)
     if f_type == "ERROR":

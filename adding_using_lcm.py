@@ -9,7 +9,7 @@ def use_least_common_denominator(total, num1, denom1, num2, denom2):
     print("Now what you do is take the LCM and divide it by each denominator and then multiply each numerator by that.",
           "That gives you the new numerator.  The new denominator is the LCM")
     print("In this case.  Our LCM is", my_lcm, "The first fraction was", str(num1) + "/" + str(denom1) + ".")
-    print("Now we divide our LCM", my_lcm, "by", denom1, "and we get", my_lcm/denom1, "Now multiply that by our numerator",
+    print("Now we divide our LCM", my_lcm, "by", denom1, "and we get", my_lcm // denom1, "Now multiply that by our numerator",
           num1, "and we get " + str((my_lcm * num1)//denom1) + "/" + str(my_lcm))
     print("Now we repeat the process with 2nd fraction which was " + str(num2) + "/" + str(denom2) + ".")
     print("Now we divide our LCM", my_lcm, "by", denom2, "and we get", my_lcm // denom2,

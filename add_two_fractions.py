@@ -1,3 +1,5 @@
+import adding_using_lcm
+
 def add_them(a1, b1, c1, d1, e1, f1, kind):
     print("As a reminder if you have 5 - -2 this is the same as 5 + 2 because negative times a negative is a positive.")
     print("Similarly if you have -5 - 2, this is the same as -5 + -2, so we just add them together to get -7.")

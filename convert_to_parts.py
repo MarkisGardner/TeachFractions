@@ -47,7 +47,7 @@ def second_part(text, t_type):
     if (pos_of_space == -1) and (sp_str.find('/') != -1):
         # there is no whole number and there is a fraction
         d = 0
-    elif (pos_of_space == -1):
+    elif pos_of_space == -1:
         # there is no fraction part so it is an integer.
         d=sp_str
     else:
